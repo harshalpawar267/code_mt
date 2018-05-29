@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Machin Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid " style="background-color:#ededed;">
+    <div class="row">
+      <div class="col-md-6 " style="background-color:skyblue;">
+        <select placeholder="Sort By Name">
+          <option *ngFor="let sortBy of sortBy" [value]="sortBy.value">
+            {{ sortBy.viewValue }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6 " style="background-color:skyblue;">
+
+        <!-- <input type="text" #box (keyup.enter)="addHero(box.value); box.value=''" placeholder="hero name">
+        <button (click)="reset()">Reset</button> -->
+      </div>
+    </div>
+
+
+
+    <div >
+      <span class="text-center">Total Record : {{totalrecord}}</span>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2" style="background-color:white;">
+          <div class="row" *ngFor="let item of pagedItems ">
+            <div class="col-md-4">
+              <ngx-avatar [src]=item.avatar_url></ngx-avatar>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-6">
+                  {{item.login}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  Profile Url
+                </div>
+                <div class="col-md-6">
+                  {{item.url}}
+                </div>
+                <div class="col-md-6">
+                  Html Url
+                </div>
+                <div class="col-md-6">
+                  {{item.html_url}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- pager -->
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+      </li>
+    </ul>
+  
+  </div>
+
+
+</body>
+
+</html>

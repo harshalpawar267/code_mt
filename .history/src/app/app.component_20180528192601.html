@@ -1,0 +1,46 @@
+
+
+<div>
+  <div class="container">
+    <div>
+        <select  placeholder="Sort By Name">
+            <option *ngFor="let sortBy of sortBy" [value]="sortBy.value">
+              {{ sortBy.viewValue }}
+            </option>
+          </select>
+          <!-- <input type="text" #box (keyup.enter)="addHero(box.value); box.value=''" placeholder="hero name">
+        <button (click)="reset()">Reset</button> -->
+    </div>
+
+    
+      <div class="text-center">
+          <!-- items being paged -->
+          <span>Total Record : {{totalrecord}}</span>
+              
+          <div *ngFor="let item of pagedItems ">
+              
+            {{item.id}}
+            <ngx-avatar src=item.avatar_url></ngx-avatar>
+
+          </div>
+
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+          </ul>
+      </div>
+  </div>

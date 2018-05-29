@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .header-class {
+      background: skyblue;
+      flex-direction: row;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 5px;
+      padding: 5px;
+    }
+
+    .information-class {
+      background: white;
+      flex-direction: row;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 5px;
+      padding: 5px;
+    }
+
+    .total-class {
+      background: #f3f2f2;
+      flex-direction: row;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 5px;
+      padding: 5px;
+    }
+
+    .button-class {
+      float: right;
+      border-color: #6456d6;
+      color: 6456d6;
+    }
+
+    @font-face {
+      font-family: Lato;
+      src: url(https://fonts.google.com/specimen/Lato);
+    }
+
+    * {
+      font-family: Lato;
+    }
+  </style>
+</head>
+
+
+<body style="background:#f3f2f2;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row header-class">
+          <div class="col-md-4 col-md-offset-2">
+            <div class="form-group">
+              <select [(ngModel)]="sortby" class="form-control" id="sel1">
+                <option *ngFor="let sortBy of sortBy" [value]="sortBy.value">{{ sortBy.viewValue }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" #filter (keyup)="user_info(filter.value);" class="form-control" id="usr">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row total-class">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+          <div class="col-md-12">Total Record: {{totalrecord}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 ">
+        <div class="row  information-class" *ngFor="let item of pagedItems  | orderBy: sortby"style="padding: 5px 15px!important;background-color:white;">
+          <div class="col-md-4">
+            <ngx-avatar [src]=item.avatar_url></ngx-avatar>
+          </div>
+          <div class="col-md-8">
+            {{item.login}}
+            <button type="button" class="btn btn-default button-class">Default</button>
+            <button type="button" class="btn btn-default button-class">Collapse</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-8 col-md-offset-2 ">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
