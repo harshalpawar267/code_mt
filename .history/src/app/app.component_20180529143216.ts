@@ -10,7 +10,7 @@ import { getTypeNameForDebugging } from '@angular/core/src/change_detection/diff
 export class AppComponent {
 
   constructor(private userService: UserInfoService) {
-    
+    debugger;
   }
   pager: any = {};
   pagedItems: any[];
