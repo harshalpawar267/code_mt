@@ -11,8 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
-  { path: 'app', component: AppComponent}
+  { path: 'Assignment', component: AppComponent },
 ];
  
 

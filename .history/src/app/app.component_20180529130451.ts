@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserInfoService } from './user-info.service';
 import { getTypeNameForDebugging } from '@angular/core/src/change_detection/differs/iterable_differs';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { getTypeNameForDebugging } from '@angular/core/src/change_detection/diff
 })
 export class AppComponent {
 
-  constructor(private userService: UserInfoService) {
+  constructor(private userService: UserInfoService,private router:Router) {
   }
   pager: any = {};
   pagedItems: any[];

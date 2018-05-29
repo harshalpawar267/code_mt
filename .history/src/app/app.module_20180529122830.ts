@@ -10,10 +10,9 @@ import { AvatarModule } from 'ngx-avatar';
 import { RouterModule, Routes } from '@angular/router';
 
 
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
-  { path: 'app', component: AppComponent}
-];
+// const appRoutes: Routes = [
+//   { path: 'Assignment', component: AppComponent },
+// ];
  
 
 @NgModule({
@@ -27,10 +26,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     AvatarModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    // RouterModule.forRoot(
+    //   appRoutes,
+    //   { enableTracing: true } // <-- debugging purposes only
+    // )
   ],
   exports: [
     OrderByPipe,
