@@ -1,0 +1,36 @@
+<ion-content #content padding>
+    <form class="form-horizontal clearfix loign-box" [formGroup]="loginForm" (ngSubmit)="doLogin()">
+        <ion-grid>
+            <ion-row class="login_form">
+                <ion-col col-12 col-md-4 offset-md-4 text-center>
+                    <img class="login-logo" src="assets/images/login-logo.png" />
+                    <h1> Welcome </h1>
+                </ion-col>
+                <ion-col col-12 col-md-4 offset-md-4 text-center>
+                    <ion-item>
+                        <ion-icon name="ios-person-outline" item-left [class.required-filed]="formErrors.username || !loginForm.controls.username.valid"></ion-icon>
+                        <ion-label floating>Email Address</ion-label>
+                        <ion-input myTabindex="1" type="email" formControlName='username' clearInput></ion-input>
+                    </ion-item>
+                    <div class="error"> <span *ngIf="formErrors.username">{{formErrors.username}}</span></div>
+                </ion-col>
+                <ion-col col-12 col-md-4 offset-md-4 text-center>
+                    <ion-item>
+                        <ion-icon name="ios-lock-outline" item-left [class.required-filed]="formErrors.password || !loginForm.controls.password.valid"></ion-icon>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input myTabindex="2" lastFieldInForm="true" type="password" formControlName='password' clearInput></ion-input>
+                    </ion-item>
+                    <div class="error"> <span *ngIf="formErrors.password"> {{formErrors.password}}</span></div>
+                    <button id="submitButtonLogin" ion-button block color="danger" type="submit"> Sign In </button>
+                    <span class="cursor forgot" (click)="openForgotPasswordModal()">Forgot Password?</span>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 col-md-4 offset-md-4 text-center>
+                    <div class="or"><span>OR</span></div>
+                    <button class="join-team-btn" ion-button block outline color="danger" type="button" (click)="goToSignUpPage()"> Create Account Now </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

@@ -1,0 +1,80 @@
+page-login {
+    .back-button {
+        display: none !important;
+    }
+    .loign-box {
+        ion-content {
+            background-color: color($colors, white) !important;
+        }
+        .scroll-content {
+            margin-top: 0px !important;
+        }
+        img {
+            width: 70px;
+            margin: 1rem auto 0;
+        }
+        .image-wrapper {
+            img {
+                width: 70px;
+                margin: 0 !important;
+            }
+            .col {
+                margin: 30px auto 20px auto;
+            }
+        }
+        h1 {
+            font-size: $font-size-xx-large;
+            font-weight: $font-weight-normal;
+            margin: $no-margin;
+            text-align: center;
+        }
+        h4 {
+            font-size: $font-size-regular;
+            font-weight: $font-weight-light;
+            text-align: center;
+            margin: $no-margin;
+        }
+        button {
+            font-size: $font-size-medium !important;
+            font-weight: $font-weight-light !important;
+            text-align: center !important;
+            margin: 30px 0 15px !important;
+            height: 45px !important;
+            text-transform: capitalize !important;
+        }
+        .or {
+            margin: 20px 0;
+            float: left;
+            border-top: 1px solid color($colors, border) !important;
+            width: 100%;
+            position: relative;
+            span {
+                display: inline-block;
+                background-color: color($colors, white);
+                position: absolute;
+                top: -10px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0 auto;
+                width: 20px;
+                font-size: $font-size-small !important;
+                font-weight: $font-weight-light !important;
+                color: color($colors, dark);
+            }
+        }
+        .forgot {
+            font-size: $font-size-medium !important;
+            font-weight: $font-weight-light !important;
+            color: color($colors, dark);
+            cursor: pointer;
+            padding-top: 5px;
+        }
+        .password-type .text-input {
+            font-size: 16px !important;
+        }
+        .join-team-btn {
+            margin-bottom: 0 !important;
+        }
+    }
+}
